@@ -6,7 +6,7 @@ class CarItem extends React.Component {
         this.state = {
           price:999,
           title: 'Mobile Phone',
-          Qty:1,
+          qty:1,
           img:''
 
         }
@@ -16,18 +16,28 @@ class CarItem extends React.Component {
 
     increaseQuantity = () => {
         console.log('this.state', this.state);
+        //setstate form 1
+        // this.setState({
+        //   qty:this.state.qty + 1
+        // })
+        //setstate form 2------ if prevState is required then use this
+        this.setState((prevState) => {
+            return {
+                qty: prevState.qty + 1
+            }
+        })
     }
     render() {
-        const {price,title,Qty} =this.state;
+        const {price,title,qty} =this.state;
         return (
             <div className="cart-item">
                 <div className="left-block">
-                    <img alt="product_image" style={styles.image} />
+                    <img style={styles.image} />
                 </div>
                 <div className="right-block">
                     <div style={{fontsize:25}}>    {title} </div>
                     <div style={ {color: '#777'}}>Rs {price} </div>
-                    <div style={ {color: '#777'}}>Qty: {Qty} </div>
+                    <div style={ {color: '#777'}}>Qty: {qty} </div>
                     <div className="cart-item-actions">
                       {/* buttons */}
                       <img alt="increase"
