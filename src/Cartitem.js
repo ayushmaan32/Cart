@@ -38,8 +38,9 @@ class CarItem extends React.Component {
     //In promise or ajax  set state do synchronus call  ---updated to synchronus
 
     render() {
-        console.log('this.props',this.props)
+        // console.log('this.props',this.props)
         const {price,title,qty} = this.props.product;
+        const {product,onIncreaseQuantity,onDecreaseQuantity,onhandleDeleteProduct} = this.props
         return (
             <div className="cart-item">
                 {this.props.jsx}
@@ -55,14 +56,19 @@ class CarItem extends React.Component {
                       <img alt="increase"
                        className="action-icons" 
                        src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
-                       onClick={ () => this.props.onIncreaseQuantity(this.props.product) }
+                       onClick={ () => onIncreaseQuantity(product) }
                        />
                       <img alt="decrease" 
                       className="action-icons"
                       src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
-                      onClick={ () => this.props.onDecreaseQuantity(this.props.product) }
+                    //   onClick={ () => this.props.onDecreaseQuantity(this.props.product) }
+                      onClick={ () => onDecreaseQuantity(product) }
                       />
-                      <img alt="delete"   className="action-icons" src="https://cdn-icons-png.flaticon.com/512/2907/2907762.png"/>
+                      <img alt="delete" 
+                        className="action-icons"
+                     src="https://cdn-icons-png.flaticon.com/512/2907/2907762.png"
+                     onClick={() => {onhandleDeleteProduct(product.id)}}
+                     />
                     </div>
                 </div>
                 
