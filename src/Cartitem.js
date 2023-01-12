@@ -1,6 +1,6 @@
 import React from "react";
 
-class CarItem extends React.Component {
+// class CarItem extends React.Component {
   
 //    with arrow function binding this
     // increaseQuantity = () => {                  
@@ -37,15 +37,17 @@ class CarItem extends React.Component {
     // }
     //In promise or ajax  set state do synchronus call  ---updated to synchronus
 
-    render() {
+    // render()
+    const CarItem = (props) => 
+     {
         // console.log('this.props',this.props)
-        const {price,title,qty} = this.props.product;
-        const {product,onIncreaseQuantity,onDecreaseQuantity,onhandleDeleteProduct} = this.props
+        const {price,title,qty} = props.product;
+        const {product,onIncreaseQuantity,onDecreaseQuantity,onhandleDeleteProduct} = props
         return (
             <div className="cart-item">
-                {this.props.jsx}
+                {/* {this.props.jsx} */}
                 <div className="left-block">
-                    <img style={styles.image} />
+                    <img style={styles.image}  src={product.img}/>
                 </div>
                 <div className="right-block">
                     <div style={{fontsize:25}}>    {title} </div>
@@ -75,7 +77,7 @@ class CarItem extends React.Component {
             </div>
         )
     }
-}
+
 const styles = {
     image:{
         height: 110,
